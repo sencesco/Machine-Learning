@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block contents %}
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <h3>Rain Prediction for tomorrow</h3>
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{ form.rainfall.label }} {{ form.rainfall() }} <br />
+                        {% if form.rainfall.errors %}
+                        {% for error in form.rainfall.errors %}
+                        <div class='text-danger'>{{ form.rainfall.label }} {{error}} </div> <br />
+                        {% endfor %}
+                        {% endif %}
+
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{ form.cloud3pm.label }} {{ form.cloud3pm() }} <br />
+                        {% if form.cloud3pm.errors %}
+                        {% for error in form.cloud3pm.errors %}
+                        <div class='text-danger'>{{ form.cloud3pm.label }} {{error}} </div> <br />
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{ form.cloud9am.label }} {{ form.cloud9am() }} <br />
+                        {% if form.cloud9am.errors %}
+                        {% for error in form.cloud9am.errors %}
+                        <div class='text-danger'> {{ form.cloud9am.label }} {{error}} </div> <br />
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{ form.humidity3pm.label }} {{ form.humidity3pm() }} <br />
+                        {% if form.humidity3pm.errors %}
+                        {% for error in form.humidity3pm.errors %}
+                        <div class='text-danger'> {{ form.humidity3pm.label }} {{error}} </div> <br />
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        {{ form.rainToday.label }} {{ form.rainToday() }} <br />
+                        {% if form.rainToday.errors %}
+                        {% for error in form.rainToday.errors %}
+                        <div class='text-danger'> {{ form.rainToday.label }} {{error}} </div> <br />
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+
+
+
+                <div id="success"></div>
+                {{ form.submit() }}
+
+            </form>
+        </h3>
+    </div>
+
+    {% endblock contents%}
